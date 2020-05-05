@@ -1,0 +1,431 @@
+body {
+    max-width: 540px;
+    min-width: 320px;
+    margin: 0 auto;
+    font: normal 14px/1.5 Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei", STXihei, hei;
+    color: #000;
+    background: #f2f2f2;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color:#222;
+}
+
+div{
+    box-sizing: border-box;
+}
+
+/*搜索模块*/
+.search_index{
+    display: flex;
+    width: 100%;
+    max-width: 540px;
+    min-width: 320px;
+    height: 44px;
+    background-color: blue;
+    background-color: #F6F6F6;
+    position: fixed;
+    /*top:0;
+    left: 50%;*/
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    /*固定的盒子应该有宽度*/
+    /*-webkit-transform: translate(-50%);
+    transform: translate(-50%);*/
+    z-index: 9999;
+}
+
+.search{
+    position: relative;
+    height: 26px;
+    line-height: 24px;
+    border: 1px solid #ccc;
+    flex: 1;
+    font-size: 12px;
+    color: #666;
+    margin: 7px 10px;
+    padding-left: 25px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.2);
+}
+
+.search:before{
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 15px;
+    height: 15px;
+    background: url("../images/sprite.png") no-repeat -59px -279px;
+    background-size: 104px auto;
+}
+
+.user{
+    height: 44px;
+    width: 44px;
+    font-size: 12px;
+    color: #2eaae0;
+    text-align: center;
+}
+
+.user:before{
+    content: "";
+    display: block;
+    width: 23px;
+    height: 23px;
+    background: url("../images/sprite.png") no-repeat -59px -194px;
+    background-size: 104px auto;
+    margin: 4px auto -2px;
+}
+/* goBack */
+.goBack{
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    width: 38px;
+    height: 39px;
+    background:url(../images/back.png) no-repeat;
+    background-size: 38px 38px;
+}
+
+/*focus*/
+.focus{
+    padding-top: 44px;
+    position: relative;
+    overflow: hidden;
+}
+
+.focus img{
+    width: 100%;
+}
+.focus ul{
+    /* overflow: hidden; */
+    width: 500%;
+    margin-left: -100%;
+}
+.focus ul li{
+    float: left;
+    width: 20%;
+}
+.focus ol{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    margin: 0;
+}
+.focus ol li{
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background-color: #fff;
+    list-style: none;
+    border-radius: 2px;
+    /* js里面写了 */
+    /* transition: all .3s; */
+}
+.focus ol li.current{
+    width: 15px;
+}
+/*local_nav*/
+.local_nav{
+    display: flex;
+    height: 64px;
+    margin: 3px 4px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.local_nav li{
+    flex: 1;
+}
+
+.local_nav a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+}
+
+/*为什么不能加span*/
+.local_nav li  [class^="local_nav_icon"]{
+    width: 32px;
+    height: 32px;
+    /*background-color: blue;*/
+    margin-top:8px;
+    background: url("../images/localnav_bg.png") no-repeat 0px 0px;
+    background-size:32px auto ;
+}
+
+.local_nav li .local_nav_icon_icon2{
+    background-position: 0px -32px;
+}
+
+.local_nav li .local_nav_icon_icon3{
+    background-position: 0px -64px;
+}
+
+.local_nav li .local_nav_icon_icon4{
+    background-position: 0px -96px;
+}
+
+.local_nav li .local_nav_icon_icon5{
+    background-position: 0px -128px;
+}
+
+/*nav*/
+nav{
+    /*background-color: blue;*/
+    overflow: hidden;
+    border-radius: 8px;
+    margin: 0 4px 3px;
+}
+
+.nav_common{
+    height: 88px;
+    background-color: pink;
+    display: flex;
+}
+
+.nav_items{
+    flex-direction: column;
+    display: flex;
+    flex: 1;
+}
+
+.nav_items a{
+    flex: 1;
+    text-align: center;
+    line-height: 44px;
+    color: #fff;
+    font-size: 14px;
+    text-shadow: 1px 1px rgba(0,0,0,.2);
+}
+
+.nav_common:nth-child(2){
+    margin: 3px 0;
+}
+
+/*nav_items里面只有一个的a好像是和有两个a的第二个对其*/
+.nav_items a:nth-child(1){
+    border-bottom: 1px solid #fff;
+}
+
+.nav_items:nth-child(1) a{
+    /*不加border:0时前面的"酒店"比后面的短1px*/
+    border: 0;
+    background: url("../images/ding.png") no-repeat bottom center;
+    background-size: 121px auto;
+}
+
+.nav_common:nth-child(2) .nav_items:nth-child(1) a{
+    background: url("../images/plan.png") no-repeat bottom center;
+    background-size: 121px auto;
+}
+
+.nav_common:nth-child(3) .nav_items:nth-child(1) a{
+    background: url("../images/wei.png") no-repeat bottom center;
+    background-size: 121px auto;
+}
+
+/*-n+2就是选择前面两个元素*/
+.nav_items:nth-child(-n+2){
+    border-right: 1px solid #fff;
+}
+
+.nav_common:nth-child(1){
+    background: -webkit-linear-gradient(left,#FA5A55,#FA994D);
+}
+
+.nav_common:nth-child(2){
+    background: -webkit-linear-gradient(left,#4B90ED,#53BCED);
+}
+
+.nav_common:nth-child(3){
+    background: -webkit-linear-gradient(left,#34C2A9,#6CD559);
+}
+
+/*subnav_entry*/
+.subnav_entry{
+    border-radius: 8px;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 4px;
+    padding: 5px 0;
+}
+
+.subnav_entry li{
+    flex: 20%;
+}
+
+.subnav_entry a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subnav_entry li [class^=subnav_entry_icon]{
+    width: 24px;
+    height: 24px;
+    margin-top: 4px;
+    background: url("../images/subnav-bg.png") no-repeat 0 0;
+    background-size: 24px auto;
+}
+
+.subnav_entry li .subnav_entry_icon2{
+    background-position: 0px -24px;
+}
+
+.subnav_entry li .subnav_entry_icon3{
+    background-position: 0px -56px;
+}
+
+.subnav_entry li .subnav_entry_icon4{
+    background-position: 0px -84px;
+}
+
+.subnav_entry li .subnav_entry_icon5{
+    background-position: 0px -112px;
+}
+
+.subnav_entry li .subnav_entry_icon6{
+    background-position: 0px -140px;
+}
+
+.subnav_entry li .subnav_entry_icon7{
+    background-position: 0px -172px;
+}
+
+.subnav_entry li .subnav_entry_icon8{
+    background-position: 0px -200px;
+}
+
+.subnav_entry li .subnav_entry_icon9{
+    background-position: 0px -225px;
+}
+
+.subnav_entry li .subnav_entry_icon10{
+    background-position: 0px -250px;
+}
+
+/*sales_box*/
+.sales_box{
+    background-color: #fff;
+    border-top: 1px solid #bbb;
+    margin: 4px;
+}
+
+.sales_hd{
+    position: relative;
+    height: 44px;
+    border-bottom: 1px solid #ccc;
+}
+
+.sales_hd h2{
+    position: relative;
+    text-indent: -999px;
+    overflow: hidden;
+}
+
+.sales_hd h2:after{
+    position: absolute;
+    content: "";
+    top: 5px;
+    left: 8px;
+    width: 79px;
+    height: 15px;
+    background: url("../images/hot.png") no-repeat 0 -20px;
+    background-size: 79px auto;
+}
+
+.more{
+    position: absolute;
+    right: 5px;
+    top: 0px;
+    background: -webkit-linear-gradient(left,#FF506C,#FF6BC6);
+    border-radius: 15px;
+    color: #fff;
+    padding: 3px 20px 3px 10px;
+}
+.more:after{
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(45deg);
+    top: 9px;
+    right: 9px;
+}
+
+.row{
+    display: flex;
+}
+
+.row a{
+    flex: 1;
+    border-bottom: 1px solid #eee;
+}
+
+.row a:nth-child(1){
+    border-right: 1px solid #eee;
+}
+
+.row a img{
+    width: 100%;
+}
+
+/*nav_bottom*/
+.nav_bottom{
+    margin: 4px 0px;
+    background-color: #fff;
+    display: flex;
+    height: 44px;
+}
+
+.nav_bottom li{
+    flex: 1;
+}
+
+.nav_bottom a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+}
+
+.nav_bottom li [class^=nav_bottom_icon_icon] {
+    width: 23px;
+    height: 23px;
+    margin-top: 6px;
+    margin-bottom: -4px;
+    /*background-color: blue;*/
+    background: url("../images/sprite.png") no-repeat -55px -150px;
+    background-size: 104px auto;
+}
+
+.nav_bottom li .nav_bottom_icon_icon2{
+    background-position: -55px -170px;
+}
+
+.nav_bottom li .nav_bottom_icon_icon3{
+    background-position: -58px -310px;
+}
+
+/*bottom_more*/
+.bottom_more{
+    margin-top: 8px;
+    text-align: center;
+    font-size: 12px;
+}
